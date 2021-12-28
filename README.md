@@ -7,6 +7,7 @@
 + npm run build - запуск сборки продакшена с оптимизацией всего
 + npm run deployZIP - сохранение продакшн сборки в архив
 + npm run deployFTP - заливка продакшн сборки на фтп
++ gulp svgSpriteIcons  - создание спрайта SVG
 
 ---
 Настройки подключения FTP:  gulp\config\ftp.js
