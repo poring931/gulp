@@ -14,6 +14,7 @@ export const html = () => {
     ))
     .pipe(fileInclude())
     .pipe(app.plugins.replace(/@img\//g, "img/"))
+    .pipe(app.plugins.replace('<img', '<img loading="lazy" decoding="async"'))
     .pipe(
         app.plugins.if(
             app.isBuild,
