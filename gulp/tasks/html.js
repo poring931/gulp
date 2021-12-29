@@ -15,12 +15,12 @@ export const html = () => {
     .pipe(fileInclude())
     .pipe(app.plugins.replace(/@img\//g, "img/"))
     .pipe(app.plugins.replace('<img', '<img loading="lazy" decoding="async"'))
-    .pipe(
-        app.plugins.if(
-            app.isBuild,
-            webpHtmlNosvg()
-        )
-    )
+    // .pipe(//для вывод picture с одним webp. Но решил отказаться\ попробовать и формировать Picture руками в верстке + плагин gulp-sharp-responsive
+    //     app.plugins.if(
+    //         app.isBuild,
+    //         webpHtmlNosvg()
+    //     )
+    // )
     .pipe(
         app.plugins.if(
             app.isBuild,

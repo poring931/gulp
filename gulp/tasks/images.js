@@ -1,5 +1,7 @@
 import webp from 'gulp-webp';
 import imagemin from 'gulp-imagemin';
+import sharpResponsive from 'gulp-sharp-responsive';
+
 
 
 
@@ -12,11 +14,22 @@ export const images = () => {
         })
     ))
     .pipe(app.plugins.newer(app.path.build.images))
+   .pipe(sharpResponsive({
+        includeOriginalFile: true,
+        formats: [
+    
+        // webp
+        { width: 560, format: "webp", rename: { suffix: "-sm" } },
+        { width: 768, format: "webp", rename: { suffix: "-md" } },
+        { width: 1024, format: "webp", rename: { suffix: "-lg" } },
+        // avif
+        // { width: 560, format: "avif", rename: { suffix: "-sm" } },
+        // { width: 768, format: "avif", rename: { suffix: "-md" } },
+        // { width: 1024, format: "avif", rename: { suffix: "-lg" } },
+        ]
+    }))
     .pipe(
-        app.plugins.if(
-            app.isBuild,
-           webp()
-        )
+        webp()
     )
     .pipe(
         app.plugins.if(

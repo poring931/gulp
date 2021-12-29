@@ -6,7 +6,13 @@
 <body>
     @@include('html/header.html',{})
     <main>
-        <img src="@img/banner_pc.jpg" alt="">
+        <picture>
+            <source srcset="@img/banner_pc-sm.webp" media="(max-width: 640px)" type="image/webp" />
+            <source srcset="@img/banner_pc-md.webp" media="(max-width: 768px)" type="image/webp" />
+            <source srcset="@img/banner_pc-lg.webp" media="(max-width: 1024px)" type="image/webp" />
+            <source srcset="@img/banner_pc.webp" type="image/webp" />
+            <img src="@img/banner_pc.jpg" class="" alt="" />
+        </picture>
         <span>ya text</span>
     </main>
     @@include('html/footer.html',{})
